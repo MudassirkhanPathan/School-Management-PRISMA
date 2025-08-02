@@ -1,0 +1,48 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["USER", "STUDENT"]
+}
+
+enum Role {
+  STUDENT
+  TEACHER
+  PRINCIPAL
+
+  @@schema("USER")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  password String
+  role     Role
+  students Student[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@schema("USER")
+}
+
+model Student {
+  id        Int      @id @default(autoincrement())
+  name      String
+  age       Int
+  gender    String
+  address   String
+  class     String
+  section   String
+  phone     String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@schema("STUDENT")
+}
