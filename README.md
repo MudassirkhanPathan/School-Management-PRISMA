@@ -1,6 +1,6 @@
 # 🏫 School Management System (Node.js + TypeScript + Prisma + PostgreSQL)
 
-![School Management System]((https://github.com/MudassirkhanPathan/School-Management-PRISMA/blob/main/Subheading.png))
+![School Management System](https://github.com/MudassirkhanPathan/School-Management-PRISMA/blob/main/Subheading.png)
 
 🚀 A **School Management System** built using **Node.js, Express.js, TypeScript, Prisma ORM, and PostgreSQL**.  
 This system includes **role-based access control** for **Students, Teachers, and Principals** with CRUD operations and authorization.
